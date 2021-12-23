@@ -1,7 +1,9 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 const config = require('electron-json-config').factory('./config.json')
-const renderer = require('./renderer.js')
+
+app.commandLine.appendSwitch('ignore-certificate-errors')
+app.commandLine.appendSwitch('allow-insecure-localhost', 'true')
 
 function createWindow () {
   // Create the browser window.
@@ -18,11 +20,6 @@ function createWindow () {
   mainWindow.loadURL(config.get("loadUrl"));
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
-    mainWindow.webContents.on('did-finish-load', () => {
-      // mainWindow.webContents.executeJavaScript(`setTimeout(() => $(".header-button").remove(), 15000);`)
-      console.log("teste: "+renderer.teste())
-      mainWindow.webContents.executeJavaScript(`$('head').append(<script type="text/javascript" src="./renderer.js"></script>)`)
-    })
   })
 }
 

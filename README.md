@@ -28,7 +28,9 @@ Para setar as configuração do APP basta criar um arquivo config.json seguindo 
         "closable": false,
         "movable": false,
         "webPreferences": {
-            "zoomFactor": 1.25
+            "zoomFactor": 1.25,
+            "webSecurity": false,
+            "allowRunningInsecureContent": true
         }
     },
     "loadUrl": "http://kmee.com.br/pos/web/#action=pos.ui"
