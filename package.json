@@ -25,6 +25,9 @@
     "electron-json-config": "^2.0.0-beta",
     "electron-navigation": "^6.6.6",
     "express": "^4.17.1",
-    "express-cache-middleware": "^1.0.1"
+    "express-cache-middleware": "^1.0.1",
+    "json-schema": ">=0.4.0",
+    "trim-newlines": ">=3.0.1",
+    "url-regex": ">= 5.0.0"
   }
 }
