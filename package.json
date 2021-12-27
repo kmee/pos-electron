@@ -1,24 +1,28 @@
 {
-  "name": "electron-quick-start",
+  "name": "pos-electron",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "A minimal Electron application for Odoo POS",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "deb64": "electron-packager . app --platform linux --arch x64 --out dist/ && electron-installer-debian --src dist/app-linux-x64/ --dest dist/installers/ --arch amd64",
+    "rpm64": "electron-packager . app --platform linux --arch x64 --out dist/ && electron-installer-redhat --src dist/app-linux-x64/ --dest dist/installers/ --arch x86_64",
+    "flatpak64": "electron-packager . app --platform linux --arch x64 --out dist/ && electron-installer-flatpak --src dist/app-linux-x64/ --dest dist/installers/ --arch x64"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/kmee/pos-electron",
   "keywords": [
     "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "POS"
   ],
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
+    "@wmr-plugins/service-worker": "^0.1.0",
     "electron": "^16.0.0",
-    "@wmr-plugins/service-worker": "^0.1.0"
+    "electron-installer-debian": "^0.6.0",
+    "electron-installer-flatpak": "^0.8.0",
+    "electron-installer-redhat": "^3.3.0",
+    "electron-packager": ">= 15.4.0"
   },
   "dependencies": {
     "cache-manager": "^3.6.0",

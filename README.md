@@ -28,6 +28,7 @@ Para setar as configuração do APP basta criar um arquivo config.json seguindo 
         "closable": false,
         "movable": false,
         "webPreferences": {
+            "devTools": false,
             "zoomFactor": 1.25,
             "webSecurity": false,
             "allowRunningInsecureContent": true
