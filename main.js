@@ -2,7 +2,6 @@
 const {app, BrowserWindow} = require('electron')
 const config = require('electron-json-config').factory('./config.json')
 
-app.commandLine.appendSwitch('ignore-certificate-errors')
 app.commandLine.appendSwitch('allow-insecure-localhost', 'true')
 
 function createWindow () {
@@ -10,6 +9,10 @@ function createWindow () {
   const mainWindow = new BrowserWindow(
     config.get("instanceParams")
   )
+
+  mainWindow.webContents.session.setCertificateVerifyProc((request, callback) => {
+    callback(0);
+  })
 
   mainWindow.removeMenu();
   // and load the index.html of the app.
