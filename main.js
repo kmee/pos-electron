@@ -19,7 +19,11 @@ function createWindow () {
   //mainWindow.loadFile('index.html')
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  mainWindow.webContents.on("before-input-event", (e, input) => {
+    if (input.type === "keyDown" && input.key === "F12") {
+      mainWindow.webContents.toggleDevTools();
+    }
+  })
   mainWindow.loadURL(config.get("loadUrl"));
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
