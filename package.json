@@ -18,7 +18,7 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "@wmr-plugins/service-worker": "^0.1.0",
-    "electron": "^16.0.0",
+    "electron": "^16.2.6",
     "electron-installer-debian": "^0.6.0",
     "electron-installer-flatpak": "^0.8.0",
     "electron-installer-redhat": "^3.3.0",
